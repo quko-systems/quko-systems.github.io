@@ -11,6 +11,10 @@
       "file": "https://quko.es/firmware/0.9993/fw_kosoku_0.9993_hwv5.bin",
       "update_channel": "production",
       "hw_version": 5
+    },
+    {
+      "version": 0.9993,
+      "file": "https://quko.es/firmware/0.9993/fw_kosoku_0.9993_hwv4.bin"
     }
   ],
   "html_versions": [
