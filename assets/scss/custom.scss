@@ -1492,138 +1492,244 @@ a {
 }
 
 
-/* ── "Two ways to get Quko Cloud" ───────────────────────────────────────────
-   Shares the panel language of .quko-research-panel so it reads as part of the
-   site rather than as an alert bolted onto it. Rendered twice from one source:
-   as a band above the product grid, and inside the first-visit modal. */
+/* ── The shop's offer band ──────────────────────────────────────────────────
+   Sits between the page hero and the Ecwid product grid.
 
-.quko-plan-panel {
+   Same ink field, glow, ring and radius as .quko-cta. That is the point: the
+   band and the CTA are the only two dark blocks on the shop page, and the
+   first attempt at this - flat ink, a tighter radius, its own badge style -
+   read as a worse copy of the one further down rather than as its sibling.
+   Everything here that differs from .quko-cta differs deliberately, and the
+   differences all run one way: smaller heading, shallower padding, no
+   buttons. The CTA stays the loudest thing on the page. */
+
+.quko-shop-offer {
+  position: relative;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  grid-template-areas: "copy options" "cta options";
-  align-items: start;
-  gap: 20px 56px;
-  padding: 48px 54px;
-  border: 1px solid rgba(49, 73, 85, .12);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, .82);
-  box-shadow: 0 18px 50px rgba(49, 73, 85, .08);
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "main figure"
+    "points points";
+  align-items: center;
+  gap: 34px 56px;
+  padding: 56px 64px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(104, 199, 220, .3), transparent 29%),
+    var(--quko-ink);
 }
 
-.quko-plan-panel-copy { grid-area: copy; }
-.quko-plan-panel-cta  { grid-area: cta; }
-.quko-plan-panel .quko-plan-options { grid-area: options; }
+/* The CTA's ring, moved to the left and mostly off the bottom edge. In the
+   same corner as the CTA's it would sit behind the figure and read as a halo
+   around it rather than as background. */
+.quko-shop-offer:before {
+  position: absolute;
+  bottom: -190px;
+  left: -110px;
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(255, 255, 255, .11);
+  border-radius: 50%;
+  content: "";
+}
 
-.quko-plan-panel h2 {
-  margin: 0 0 14px;
-  font-size: clamp(26px, 2.6vw, 36px);
+.quko-shop-offer-main {
+  position: relative;
+  z-index: 2;
+  grid-area: main;
+  max-width: 62ch;
+}
+
+.quko-shop-offer h2 {
+  margin: 0 0 16px;
+  color: var(--quko-white);
+  font-size: clamp(28px, 3.1vw, 42px);
   font-weight: 760;
-  line-height: 1.15;
+  line-height: 1.08;
 }
 
-.quko-plan-panel p {
+.quko-shop-offer p {
   margin: 0;
-  color: var(--quko-muted);
-  font-size: 16px;
+  color: rgba(255, 255, 255, .68);
+  font-size: 17px;
   line-height: 1.7;
 }
 
-.quko-plan-options {
+/* The figure, in the space the copy leaves. Without it the right third of the
+   band is bare ink, which is what made the first version look unfinished. */
+.quko-shop-offer-figure {
+  position: relative;
+  z-index: 2;
+  grid-area: figure;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 14px;
-  min-width: 0;
+  justify-items: center;
+  width: 220px;
+  padding: 26px 22px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .06);
+  text-align: center;
 }
 
-.quko-plan-option {
-  min-width: 0;
-  padding: 18px 20px;
-  border: 1px solid var(--quko-line);
-  border-radius: 16px;
-  background: var(--quko-white);
-}
-
-.quko-plan-option.is-featured {
-  border-color: var(--quko-red);
-  box-shadow: 0 6px 22px rgba(232, 56, 63, .10);
-}
-
-.quko-plan-option-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 6px;
-}
-
-.quko-plan-option strong {
-  color: var(--quko-ink);
-  font-size: 16px;
-}
-
-.quko-plan-option p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.quko-plan-badge {
-  padding: 2px 10px;
-  border-radius: 999px;
-  background: var(--quko-red);
+.quko-shop-offer-figure-value {
   color: var(--quko-white);
-  font-size: 11px;
+  font-size: 62px;
+  font-weight: 780;
+  line-height: 1;
+}
+
+.quko-shop-offer-figure-unit {
+  margin-top: 6px;
+  color: var(--quko-white);
+  font-size: 17px;
   font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  white-space: nowrap;
+}
+
+.quko-shop-offer-figure-label {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  color: rgba(255, 255, 255, .66);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* A row on a desktop, a stack on a phone, without a second media query: the
+   items are their own natural width and wrap when they run out of room. */
+.quko-shop-offer-points {
+  position: relative;
+  z-index: 2;
+  grid-area: points;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 34px;
+  margin: 0;
+  padding: 26px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  list-style: none;
+}
+
+.quko-shop-offer-points li {
+  position: relative;
+  padding-left: 26px;
+  color: rgba(255, 255, 255, .86);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* A tick drawn from two borders, so the band does not depend on the icon font
+   having loaded to avoid showing a row of empty squares. Coral rather than
+   --quko-red, which is the same red the site uses on white and goes muddy at
+   this size against ink. */
+.quko-shop-offer-points li:before {
+  position: absolute;
+  top: .3em;
+  left: 2px;
+  width: 6px;
+  height: 11px;
+  border: solid #ff989b;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  content: "";
 }
 
 @media (max-width: 991px) {
-  .quko-plan-panel {
-    /* minmax(0, 1fr), not 1fr: a grid track's implicit minimum is min-content,
-       and the badge's `white-space: nowrap` made the option cards' min-content
-       wider than the phone, so they hung out over the panel's right edge.
-       Capping the minimum at 0 lets the track obey the panel instead. */
+  .quko-shop-offer {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "copy" "options" "cta";
-    gap: 24px;
-    padding: 32px 26px;
+    grid-template-areas: "main" "figure" "points";
+    justify-items: start;
+    gap: 28px;
+    padding: 40px 34px;
+  }
+
+  /* Side by side rather than stacked once it is under the copy: the tall
+     column that works beside a paragraph turns into a wasteful block of
+     nothing when it has the full width to itself. */
+  .quko-shop-offer-figure {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    width: 100%;
+    padding: 20px 24px;
+    text-align: left;
+  }
+
+  .quko-shop-offer-figure-value {
+    font-size: 44px;
+  }
+
+  .quko-shop-offer-figure-label {
+    margin: 0 0 0 auto;
+    padding: 0 0 0 18px;
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, .14);
+    text-align: right;
   }
 }
 
+/* Everything below is about height, not width. The band fits a 320px screen
+   without any of it, but at full size it stood 720px tall on a 390px phone -
+   a whole screen of argument before the first product, on the one device
+   where the shopper is least willing to scroll for it. Nothing is hidden to
+   get that down, it is the same copy set tighter. */
 @media (max-width: 767px) {
-  .quko-plan-panel {
-    padding: 28px 20px;
-    border-radius: 22px;
+  .quko-shop-offer {
+    gap: 20px;
+    padding: 26px 20px;
+    border-radius: 26px;
   }
 
-  .quko-plan-panel h2 {
-    font-size: 24px;
+  .quko-shop-offer h2 {
+    margin-bottom: 12px;
+    font-size: 23px;
+    line-height: 1.12;
   }
 
-  .quko-plan-panel p {
+  .quko-shop-offer p {
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  /* The number and its unit share a line, and the label wraps onto a second.
+     Stacked all three deep, the figure alone ran to 150px of a screen that
+     did not have it to give. */
+  .quko-shop-offer-figure {
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 10px;
+    padding: 16px 18px;
+    border-radius: 18px;
+  }
+
+  .quko-shop-offer-figure-value {
+    font-size: 34px;
+  }
+
+  .quko-shop-offer-figure-unit {
+    margin-top: 0;
     font-size: 15px;
   }
 
-  .quko-plan-option {
-    padding: 16px;
+  .quko-shop-offer-figure-label {
+    flex-basis: 100%;
+    margin: 9px 0 0;
+    padding: 9px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, .14);
+    border-left: 0;
+    text-align: left;
   }
 
-  /* Name and badge stop competing for one line and stack instead, so a longer
-     badge in any language can no longer widen the card. */
-  .quko-plan-option-head {
-    flex-wrap: wrap;
-    gap: 6px 10px;
+  .quko-shop-offer-points {
+    gap: 9px;
+    padding-top: 18px;
   }
 
-  .quko-plan-badge {
-    white-space: normal;
-  }
-
-  /* `display: flex`, not `block`. .btn-quko centres its label with
-     align-items/justify-content, so switching it to a block dropped the label
-     to the top of the 50px pill instead of the middle of it. */
-  .quko-plan-panel-cta .btn-quko {
-    display: flex;
+  .quko-shop-offer-points li {
+    padding-left: 24px;
+    font-size: 13.5px;
   }
 }
 
@@ -1771,13 +1877,6 @@ a {
     border-radius: 22px;
   }
 
-  /* No bottom padding here: the sticky actions below supply their own, so that
-     when they sit at the foot of the scroll area there is no strip of dead
-     white beneath them for the content to scroll through. */
-  #quko-plan-modal .quko-modal-box {
-    padding-bottom: 0;
-  }
-
   .quko-modal-box h3 {
     font-size: 22px;
   }
@@ -1789,23 +1888,6 @@ a {
 
   .quko-modal-actions {
     margin-top: 20px;
-  }
-
-  /* The shop's plan notice is taller than a small phone, so both buttons sat
-     below the fold of a box that gave no sign it scrolled - the modal read as
-     if the only way past it were the close button. Sticking the actions to the
-     foot keeps "See prices" and "Continue to the shop" on screen throughout,
-     and the shadow above them shows there is more to scroll.
-
-     Scoped to this modal on purpose. The country modal is short enough to fit
-     any phone, so the same treatment there would draw a shadow across a seam
-     that nothing is ever going to scroll past. */
-  #quko-plan-modal .quko-modal-actions {
-    position: sticky;
-    bottom: 0;
-    padding: 14px 0 20px;
-    background: var(--quko-white);
-    box-shadow: 0 -12px 18px -10px rgba(18, 21, 28, .16);
   }
 
   .quko-modal-actions .btn-quko,

@@ -27,7 +27,6 @@ pricing:
   country_label: "País"
   country_placeholder: "Selecciona o teu país…"
   vat_note: "Sen IVE. O prezo final confírmase no pagamento."
-  onetime_note: "Ou compra un período fixo, sen subscrición, na nosa tenda"
   country_modal:
     title: "Desde onde nos visitas?"
     text: "As subscricións de Quko Cloud teñen prezo por país. Confirma o teu para que as cifras de abaixo sexan as que che corresponden."

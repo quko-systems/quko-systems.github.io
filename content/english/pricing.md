@@ -27,7 +27,6 @@ pricing:
   country_label: "Country"
   country_placeholder: "Select your country…"
   vat_note: "Excluding VAT. Final price confirmed at checkout."
-  onetime_note: "Or buy a fixed period, no subscription, from our store"
   country_modal:
     title: "Where are you?"
     text: "Quko Cloud subscriptions are priced by country. Confirm yours so the figures below are the ones that apply to you."

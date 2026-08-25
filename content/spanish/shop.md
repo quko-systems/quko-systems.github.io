@@ -6,21 +6,18 @@ layout: "shop"
 draft: false
 setup_title: "La tienda todavía no está conectada"
 setup_text: "Añade el identificador de tienda de Ecwid a la configuración del sitio para activar el escaparate."
-subscription_notice:
-  eyebrow: "Elige tu plan de Quko Cloud"
-  title: "Paga por la temporada que de verdad estás entrenando."
-  text: "La suscripción es más barata que las claves de precio fijo. Las claves prepago están para cuando eso no encaja: comprar para otra persona, equipar a un club por adelantado o, sencillamente, preferir no dejar una tarjeta guardada."
-  options:
-    - name: "Suscripción"
-      badge: "La mejor opción para la mayoría"
-      featured: true
-      text: "Mensual o anual, al precio de tu país. Cancela cuando quieras."
-    - name: "Clave prepago"
-      text: "Un número fijo de meses, pagado una vez."
-  label: "Ver precios para tu país"
-  dismiss_label: "Ir a la tienda"
-  close_label: "Cerrar"
-  link: "pricing/"
+shop_offer:
+  eyebrow: "Incluido con cada equipo"
+  title: "Compra un Kosoku y empieza a analizar esa misma semana."
+  text: "Cada Kosoku sale con dos meses gratis de licencia High Level de Quko Cloud. La clave llega con tu pedido y la cuenta atrás solo arranca cuando la canjeas, así que los meses son tuyos para el primer bloque que de verdad quieras medir."
+  highlight:
+    value: "2"
+    unit: "meses gratis"
+    label: "Licencia High Level, con cada Kosoku"
+  points:
+    - "Envío internacional"
+    - "IVA incluido cuando te es aplicable"
+    - "Claves por correo al confirmar el pago"
 notes:
   - "Los precios se adaptan a tu ubicación: cuando el IVA te es aplicable, ya está incluido en el precio que ves. Los pedidos fuera de la UE se muestran sin IVA europeo y pueden estar sujetos a aranceles a la llegada."
   - "Cada Kosoku incluye **dos meses de Quko Cloud en Alto Nivel**. Las claves de licencia se envían por correo tras el pago y puedes canjearlas cuando quieras: la cuenta atrás empieza al canjear, no al comprar."

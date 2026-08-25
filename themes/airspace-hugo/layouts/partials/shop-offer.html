@@ -1,0 +1,53 @@
+{{/*
+  The offer band above the product grid.
+
+  What sat here before was a "two ways to buy" explainer that also fired as a
+  first-visit modal. It was the wrong thing to put in front of a shopper: it
+  interrupted them to explain a pricing nuance before they had seen a single
+  product, and the nuance is made calmly in the notes under the grid instead.
+
+  A grid of product cards sells the products. What a grid cannot do is lead
+  with the one thing that makes buying now worth more than buying later, so
+  that is all this band carries: the licence months that ship with the unit,
+  the figure pulled out where it can be read at a glance, and the three things
+  a first-time buyer wants settled before they add to cart.
+
+  Built from the same parts as the marketing CTA that closes every page - the
+  ink field, the eyebrow, the ring - because the two are the only dark blocks
+  on the shop and a near-miss between them looks like a mistake. It stays the
+  quieter of the pair on purpose: smaller heading, no buttons. The CTA is
+  asking for the click, this is only making the case.
+
+  Renders only when the page defines `shop_offer`, so a language can drop the
+  band from its front matter without touching the template.
+*/}}
+{{ with .Params.shop_offer }}
+
+<section class="quko-section-sm quko-shop-offer-section">
+  <div class="container">
+    <div class="quko-shop-offer" data-reveal>
+      <div class="quko-shop-offer-main">
+        {{ with .eyebrow }}<span class="quko-eyebrow">{{ . }}</span>{{ end }}
+        <h2>{{ .title | markdownify }}</h2>
+        {{ with .text }}<p>{{ . }}</p>{{ end }}
+      </div>
+
+      {{/* The figure, lifted out of the paragraph. A shopper scanning the page
+           reads this before they read a sentence, and it is the whole offer. */}}
+      {{ with .highlight }}
+      <aside class="quko-shop-offer-figure">
+        <span class="quko-shop-offer-figure-value">{{ .value }}</span>
+        {{ with .unit }}<span class="quko-shop-offer-figure-unit">{{ . }}</span>{{ end }}
+        {{ with .label }}<span class="quko-shop-offer-figure-label">{{ . }}</span>{{ end }}
+      </aside>
+      {{ end }}
+
+      {{ with .points }}
+      <ul class="quko-shop-offer-points">
+        {{ range . }}<li>{{ . | markdownify }}</li>{{ end }}
+      </ul>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

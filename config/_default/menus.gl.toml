@@ -35,28 +35,28 @@ weight = 4
   parent = "more"
   name = "Prezos"
   url = "pricing/"
-  weight = 0
+  weight = 1
 
   [[main]]
   parent = "more"
   name = "Sobre QUKO"
   url = "about/"
-  weight = 1
+  weight = 2
   [[main]]
   parent = "more"
   name = "Blog"
   url = "blog/"
-  weight = 2
+  weight = 3
   [[main]]
   parent = "more"
   name = "Preguntas frecuentes"
   url = "faq/"
-  weight = 3
+  weight = 4
   [[main]]
   parent = "more"
   name = "Contacto"
   url = "contact/"
-  weight = 4
+  weight = 5
 [[main]]
 name = "Tenda"
 url = "shop/"
