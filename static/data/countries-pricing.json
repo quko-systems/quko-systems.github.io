@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "_comment": "GENERATED — do not edit. Source of truth is Quko-Cloud/apps/billing/pricing_bands.json; regenerate with scripts/export_web_pricing.py. Display only: these figures are indicative and exclude VAT. What a customer is actually charged is decided server-side from their billing country.",
+  "_comment": "GENERATED, do not edit. Source of truth is Quko-Cloud/apps/billing/pricing_bands.json; regenerate with scripts/export_web_pricing.py. Display only: these figures are indicative and exclude VAT. What a customer is actually charged is decided server-side from their billing country.",
   "currency": {
     "code": "EUR",
     "symbol": "€"
@@ -8,32 +8,32 @@
   "bands": {
     "high": {
       "basic": {
-        "sub_monthly": 34,
-        "sub_yearly": 385,
-        "code_1m": 34,
-        "code_4m": 129,
-        "code_6m": 188,
-        "code_12m": 385
+        "sub_monthly": 29,
+        "sub_yearly": 329,
+        "code_1m": 29,
+        "code_4m": 107,
+        "code_6m": 156,
+        "code_12m": 329
       }
     },
     "mid": {
       "basic": {
-        "sub_monthly": 25,
-        "sub_yearly": 279,
-        "code_1m": 25,
-        "code_4m": 95,
-        "code_6m": 138,
-        "code_12m": 279
+        "sub_monthly": 21,
+        "sub_yearly": 235,
+        "code_1m": 21,
+        "code_4m": 79,
+        "code_6m": 115,
+        "code_12m": 235
       }
     },
     "low": {
       "basic": {
-        "sub_monthly": 17,
-        "sub_yearly": 189,
-        "code_1m": 17,
-        "code_4m": 65,
-        "code_6m": 94,
-        "code_12m": 189
+        "sub_monthly": 15,
+        "sub_yearly": 150,
+        "code_1m": 15,
+        "code_4m": 54,
+        "code_6m": 78,
+        "code_12m": 150
       }
     }
   },
