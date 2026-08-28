@@ -8,22 +8,22 @@
   "bands": {
     "high": {
       "basic": {
-        "sub_monthly": 29,
-        "sub_yearly": 329,
-        "code_1m": 29,
-        "code_4m": 107,
-        "code_6m": 156,
-        "code_12m": 329
+        "sub_monthly": 32,
+        "sub_yearly": 355,
+        "code_1m": 32,
+        "code_4m": 118,
+        "code_6m": 172,
+        "code_12m": 355
       }
     },
     "mid": {
       "basic": {
-        "sub_monthly": 21,
-        "sub_yearly": 235,
-        "code_1m": 21,
-        "code_4m": 79,
-        "code_6m": 115,
-        "code_12m": 235
+        "sub_monthly": 24,
+        "sub_yearly": 260,
+        "code_1m": 24,
+        "code_4m": 90,
+        "code_6m": 131,
+        "code_12m": 260
       }
     },
     "low": {
