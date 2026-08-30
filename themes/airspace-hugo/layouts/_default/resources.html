@@ -1,0 +1,54 @@
+{{ define "main" }}
+<section class="quko-page-title">
+  <div class="container">
+    <span class="quko-eyebrow">{{ .Params.eyebrow }}</span>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+</section>
+
+<section class="quko-section quko-resources" data-resources-root>
+  <div class="container">
+    <div class="quko-resource-toolbar" data-reveal>
+      <label class="sr-only" for="resource-search">{{ .Params.search_label }}</label>
+      <span class="quko-resource-search-icon fas fa-search" aria-hidden="true"></span>
+      <input id="resource-search" type="search" placeholder="{{ .Params.search_placeholder }}" autocomplete="off" data-resource-search>
+    </div>
+
+    <div class="quko-resource-grid" data-resource-list>
+      {{ range sort .Params.resources "date" "desc" }}
+      <article class="quko-card quko-resource-card" data-resource-card data-reveal>
+        <div class="quko-resource-card-head">
+          <span class="quko-icon"><i class="fas fa-cube" aria-hidden="true"></i></span>
+          <div class="quko-resource-meta">
+            <span>{{ .category }}</span>
+            <time datetime="{{ .date }}">{{ .display_date }}</time>
+          </div>
+        </div>
+        <h2>{{ .title }}</h2>
+        <p>{{ .description }}</p>
+        <div class="quko-resource-specs">
+          <h3>{{ $.Params.requirements_label }}</h3>
+          <ul class="quko-check-list">
+            {{ range .requirements }}
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i><span>{{ . }}</span></li>
+            {{ end }}
+          </ul>
+        </div>
+        <div class="quko-resource-card-footer">
+          <span class="quko-resource-format">{{ .file_type }}</span>
+          <a class="btn btn-main" href="{{ .download | relURL }}" download>
+            <i class="fas fa-download" aria-hidden="true"></i> {{ .button_label }}
+          </a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    <p class="quko-resource-empty" data-resource-empty hidden>{{ .Params.no_results }}</p>
+  </div>
+</section>
+
+{{ $resourcesJS := resources.Get "js/resources.js" | minify | fingerprint }}
+<script defer src="{{ $resourcesJS.RelPermalink }}" integrity="{{ $resourcesJS.Data.Integrity }}"></script>
+{{ end }}
