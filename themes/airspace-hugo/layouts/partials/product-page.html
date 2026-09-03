@@ -89,6 +89,8 @@
 </section>
 {{ end }}
 
+{{ partial "assurance-card.html" . }}
+
 {{ with .Params.for_whom }}
 <section class="quko-section quko-section-muted">
   <div class="container">
@@ -115,4 +117,11 @@
 {{ end }}
 
 {{ partial "pricing-table.html" . }}
+
+{{ with .Params.cloud_note }}
+<div class="quko-section-sm"><div class="container">
+  <p class="quko-fine-print">{{ . | markdownify }}</p>
+</div></div>
+{{ end }}
+
 {{ partial "marketing-cta.html" . }}

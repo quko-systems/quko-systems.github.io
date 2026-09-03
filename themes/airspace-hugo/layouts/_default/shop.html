@@ -36,6 +36,9 @@
 {{/* Lead with the offer, not with an explanation of the price list. */}}
 {{ partial "shop-offer.html" . }}
 
+{{/* Warranty, support and automatic updates, right below the offer band. */}}
+{{ partial "assurance-card.html" . }}
+
 <section class="quko-section quko-shop">
   <div class="container">
     {{ if or (not $storeId) (eq $storeId "00000000") }}
@@ -99,6 +102,12 @@
     </div>
   </div>
 </section>
+{{ end }}
+
+{{ with .Params.cloud_note }}
+<div class="quko-section-sm"><div class="container">
+  <p class="quko-fine-print">{{ . | markdownify }}</p>
+</div></div>
 {{ end }}
 
 {{ partial "marketing-cta.html" . }}

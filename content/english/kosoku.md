@@ -80,6 +80,15 @@ integrations:
   eyebrow: "Connected by design"
   title: "Fits the tools around your training"
   items: ["Quko Live", "Quko Cloud", "Garmin", "Heart-rate sensors", "Paddle sensors", "Start systems"]
+assurance:
+  eyebrow: "Ownership made easy"
+  title: "Backed for the long run"
+  text: "Kosoku is built to stay in service season after season, and we stand behind it."
+  items:
+    - "**2-year warranty** included with every Kosoku."
+    - "**Responsive customer support**, reachable on WhatsApp."
+    - "**Automatic updates**: firmware and app improvements are pushed online continuously, with nothing for you to install."
+cloud_note: "Kosoku needs an active Quko Cloud subscription to unlock every Quko Cloud feature."
 marketing_cta:
   eyebrow: "Meet Kosoku"
   title: "See what your boat has been telling you"

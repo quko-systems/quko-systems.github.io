@@ -29,6 +29,15 @@ legal_links:
     url: "privacy/"
   - label: "Legal notice"
     url: "legal_notice/"
+assurance:
+  eyebrow: "Ownership made easy"
+  title: "Backed for the long run"
+  text: "Kosoku is built to stay in service season after season, and we stand behind it."
+  items:
+    - "**2-year warranty** included with every Kosoku."
+    - "**Responsive customer support**, reachable on WhatsApp."
+    - "**Automatic updates**: firmware and app improvements are pushed online continuously, with nothing for you to install."
+cloud_note: "Kosoku needs an active Quko Cloud subscription to unlock every Quko Cloud feature."
 marketing_cta:
   eyebrow: "Not sure what you need?"
   title: "Tell us about your programme"

@@ -58,6 +58,15 @@ integrations:
   eyebrow: "Conectado desde o deseño"
   title: "Encaixa coas ferramentas do teu adestramento"
   items: ["Quko Live", "Quko Cloud", "Garmin", "Pulsómetros", "Sensores de pa", "Sistemas de saída"]
+assurance:
+  eyebrow: "Propiedade sen complicacións"
+  title: "Respaldado a longo prazo"
+  text: "Kosoku está pensado para seguir en servizo tempada tras tempada, e respaldámolo."
+  items:
+    - "**Garantía de 2 anos** incluída con cada Kosoku."
+    - "**Atención ao cliente áxil**, á que podes escribir por WhatsApp."
+    - "**Actualizacións automáticas**: as melloras de firmware e da aplicación envíanse en liña de forma continua, sen que teñas que instalar nada."
+cloud_note: "Kosoku precisa unha subscrición activa a Quko Cloud para desbloquear todas as funcións de Quko Cloud."
 marketing_cta:
   eyebrow: "Coñece Kosoku"
   title: "Descubre o que che conta a túa embarcación"
