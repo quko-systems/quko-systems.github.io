@@ -1619,19 +1619,6 @@ a {
   background: linear-gradient(90deg, var(--quko-red), rgba(232, 56, 63, 0) 72%);
 }
 
-/* A faint oversized ring bleeding off the bottom-right corner - the same trick
-   the dark offer band uses, kept very quiet here so it reads as texture. */
-.quko-assurance:after {
-  content: "";
-  position: absolute;
-  right: -120px;
-  bottom: -160px;
-  width: 320px;
-  height: 320px;
-  border: 1px solid rgba(232, 56, 63, .14);
-  border-radius: 50%;
-}
-
 .quko-assurance-main {
   position: relative;
   z-index: 1;
