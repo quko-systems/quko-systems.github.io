@@ -37,7 +37,6 @@ assurance:
     - "**2-year warranty** included with every Kosoku."
     - "**Responsive customer support**, reachable on WhatsApp."
     - "**Automatic updates**: firmware and app improvements are pushed online continuously, with nothing for you to install."
-cloud_note: "Kosoku needs an active Quko Cloud subscription to unlock every Quko Cloud feature."
 marketing_cta:
   eyebrow: "Not sure what you need?"
   title: "Tell us about your programme"

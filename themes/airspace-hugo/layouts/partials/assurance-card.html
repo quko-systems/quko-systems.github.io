@@ -1,12 +1,15 @@
 {{/*
-  Ownership assurance card.
+  Ownership assurance panel.
 
-  One wide card, not a grid: warranty, support and automatic updates are the
-  three things a buyer wants settled after they have decided the sensor itself
-  is right, and they read as a single reassurance rather than three features.
-  Built from the same parts as the marketing pieces around it - quko-icon,
-  quko-eyebrow, quko-check-list - so it sits inside the page furniture without
-  a new visual language.
+  Warranty, support and automatic updates are the three things a buyer wants
+  settled once they have decided the sensor itself is right - they read as a
+  single reassurance, not three features, so this is one panel and not a grid.
+
+  Deliberately NOT a .quko-card: it drops the bordered white tile look used by
+  every other block on these pages and takes its own treatment - a soft tinted
+  gradient, a brand hairline along the top, a wide radius, the checklist set
+  off behind a divider - so it stands apart as the "we have got your back"
+  note rather than blending into the feature tiles above it.
 
   Renders only when the page defines `assurance`, so a language or a page can
   drop it from front matter without touching this file. Used by both the
@@ -15,16 +18,15 @@
 {{ with .Params.assurance }}
 <section class="quko-section-sm quko-assurance-section">
   <div class="container">
-    <article class="quko-card quko-assurance" data-reveal>
-      <div class="quko-assurance-intro">
-        <span class="quko-icon"><i class="{{ .icon | default "fas fa-shield-alt" }}"></i></span>
+    <article class="quko-assurance" data-reveal>
+      <div class="quko-assurance-main">
         {{ with .eyebrow }}<span class="quko-eyebrow">{{ . }}</span>{{ end }}
         <h2>{{ .title }}</h2>
         {{ with .text }}<p>{{ . }}</p>{{ end }}
       </div>
       {{ with .items }}
-      <ul class="quko-check-list">
-        {{ range . }}<li><i class="fas fa-check-circle"></i><span>{{ . | markdownify }}</span></li>{{ end }}
+      <ul class="quko-assurance-list">
+        {{ range . }}<li><span class="quko-assurance-check"><i class="fas fa-check"></i></span><span>{{ . | markdownify }}</span></li>{{ end }}
       </ul>
       {{ end }}
     </article>
