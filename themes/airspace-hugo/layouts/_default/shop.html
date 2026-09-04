@@ -82,18 +82,26 @@
   </div>
 </section>
 
+{{ with .Params.cloud_note }}
+<div class="quko-fine-print-wrap"><div class="container">
+  <p class="quko-fine-print">{{ . | markdownify }}</p>
+</div></div>
+{{ end }}
+
+{{ partial "marketing-cta.html" . }}
+
+{{/* Price/VAT caveats and the distance-selling legal links are fine print, not
+     part of the sales pitch: they run full width in a quiet strip at the very
+     bottom of the page, after the closing CTA. Distance selling only requires
+     that the terms, the withdrawal right and the seller's identity be reachable
+     before the order is placed - which this still satisfies. Deliberately not
+     data-reveal: legally required information should not depend on a scroll
+     animation. */}}
 {{ if or .Params.notes .Params.legal_links }}
-<section class="quko-section-sm quko-section-muted">
+<section class="quko-shop-footnotes quko-section-muted">
   <div class="container">
     <div class="quko-shop-notes">
       {{ range .Params.notes }}<p>{{ . | markdownify }}</p>{{ end }}
-
-      {{/* Distance selling requires the terms, the withdrawal right and the
-           seller's identity to be reachable before the order is placed. These
-           sit here rather than only in the shop platform's own legal settings,
-           so the obligation is met by the page itself regardless of how that
-           is configured. Deliberately not data-reveal, legally required
-           information should not depend on a scroll animation. */}}
       {{ with .Params.legal_links }}
       <p class="quko-shop-legal">
         {{ range $i, $l := . }}{{ if $i }} · {{ end }}<a href="{{ $l.url | relLangURL }}">{{ $l.label }}</a>{{ end }}
@@ -103,12 +111,4 @@
   </div>
 </section>
 {{ end }}
-
-{{ with .Params.cloud_note }}
-<div class="quko-section-sm"><div class="container">
-  <p class="quko-fine-print">{{ . | markdownify }}</p>
-</div></div>
-{{ end }}
-
-{{ partial "marketing-cta.html" . }}
 {{ end }}

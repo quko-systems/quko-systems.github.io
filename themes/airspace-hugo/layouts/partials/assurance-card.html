@@ -13,13 +13,15 @@
   product page (product-page.html) and the shop (_default/shop.html).
 */}}
 {{ with .Params.assurance }}
-<section class="quko-section">
+<section class="quko-section-sm quko-assurance-section">
   <div class="container">
     <article class="quko-card quko-assurance" data-reveal>
-      <span class="quko-icon"><i class="{{ .icon | default "fas fa-shield-alt" }}"></i></span>
-      {{ with .eyebrow }}<span class="quko-eyebrow">{{ . }}</span>{{ end }}
-      <h2>{{ .title }}</h2>
-      {{ with .text }}<p>{{ . }}</p>{{ end }}
+      <div class="quko-assurance-intro">
+        <span class="quko-icon"><i class="{{ .icon | default "fas fa-shield-alt" }}"></i></span>
+        {{ with .eyebrow }}<span class="quko-eyebrow">{{ . }}</span>{{ end }}
+        <h2>{{ .title }}</h2>
+        {{ with .text }}<p>{{ . }}</p>{{ end }}
+      </div>
       {{ with .items }}
       <ul class="quko-check-list">
         {{ range . }}<li><i class="fas fa-check-circle"></i><span>{{ . | markdownify }}</span></li>{{ end }}

@@ -119,7 +119,7 @@
 {{ partial "pricing-table.html" . }}
 
 {{ with .Params.cloud_note }}
-<div class="quko-section-sm"><div class="container">
+<div class="quko-fine-print-wrap"><div class="container">
   <p class="quko-fine-print">{{ . | markdownify }}</p>
 </div></div>
 {{ end }}

@@ -1560,7 +1560,13 @@ a {
 }
 
 /* Small print: e.g. the Quko Cloud subscription note on the Kosoku and shop
-   pages. Quiet by design, but still centred within the page column. */
+   pages. Quiet by design, but still centred within the page column. Its own
+   tight wrapper rather than .quko-section-sm: one muted line does not need
+   72px of air above and below it. */
+.quko-fine-print-wrap {
+  padding: 30px 0;
+}
+
 .quko-fine-print {
   max-width: 640px;
   margin: 0 auto;
@@ -1571,11 +1577,29 @@ a {
   text-align: center;
 }
 
-/* Ownership assurance: one wide card rather than a grid. Constrain and centre
-   it so a single card does not run the full width of the container. */
+/* The panel already carries its own border and padding, so the section around
+   it stays tight - just enough to separate it from the band above and whatever
+   follows, without the full 72/104px section rhythm reopening a gap. */
+.quko-assurance-section {
+  padding: 56px 0;
+}
+
+/* On the shop the assurance panel and the product grid share the same white
+   ground, so the two full section paddings between them read as one big empty
+   band. Pull the grid up close instead. */
+.quko-assurance-section + .quko-shop {
+  padding-top: 16px;
+}
+
+/* Ownership assurance: one wide panel. Two columns - the pitch on the left, the
+   checklist on the right - so a single card fills the container width and reads
+   with some weight instead of as a thin strip floating in the section. */
 .quko-assurance {
-  max-width: 720px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  align-items: center;
+  padding: 44px 48px;
 }
 
 .quko-assurance .quko-eyebrow {
@@ -1588,9 +1612,21 @@ a {
   font-weight: 740;
 }
 
-.quko-assurance p {
-  margin: 0 0 20px;
+.quko-assurance .quko-assurance-intro p {
+  margin: 0;
   color: var(--quko-muted);
+}
+
+.quko-assurance .quko-check-list {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .quko-assurance {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 32px 26px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -1659,16 +1695,21 @@ a {
   color: var(--quko-ink);
 }
 
+/* Fine-print strip at the foot of the shop page: full container width, small
+   type, tight vertical rhythm. It sits after the closing CTA, so it should
+   read as a footer note, not as another content section. */
+.quko-shop-footnotes {
+  padding: 26px 0;
+}
+
 .quko-shop-notes {
-  max-width: 736px;
-  margin: 0 auto;
   color: var(--quko-muted);
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1.65;
 }
 
 .quko-shop-notes p + p {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .quko-shop-notes a {
